@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorythm</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/main_modal_css.css">
+    <link rel="stylesheet" href="./assets/font/Bản sao font/themify-icons/themify-icons.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        A l g o r y t h m
+        <i class="ti-menu">
+            <div class="sub-menu">
+                <ul>
+                    <li class="user">
+                        <img src="./assets/img/avt-icon.png" alt="">
+                        <h3 id="user-name">Full Name</h3>
+                    </li>
+                    <li class="nav" id="nav-setting">
+                        <h4>Cài đặt</h4>
+                    </li>
+                    <li class="nav">
+                        <h4>Other navigation</h4>
+                    </li>
+                    <li class="last-nav">
+                        <h4>Đăng xuất</h4>
+                    </li>
+                </ul>
+            </div>
+        </i>
+    </div>
+    <!-- Main page -->
+    <div class="main">
+        <!-- Các thẻ sẽ được thêm vào đây -->
+    </div>
+    <!-- Algorythm content -->
+    <div class="content">
+        <div class="content-container">
+            <div class="title">
+                <div class="wrapper">
+                    <div class="btn close-btn"></div>
+                    <div class="btn min-btn"></div>
+                    <div class="btn max-btn"></div>
+                </div>
+                <h3 id="title-name">
+                    <!-- Thêm tên từ fake API -->
+                </h3>
+            </div>
+            <div class="body">
+                <div class="option">
+                    <ul>
+                        <li id="backtracking-theory">Lý thuyết</li>
+                        <li id="backtracking-sample-code">Code mẫu</li>
+                        <li id="backtracking-example">Ví dụ</li>
+                        <li id="backtracking-note">Ghi chú</li>
+                    </ul>
+                </div>
+                <div class=" screen">
+                    <div class="theory" >
+                        <!-- Lấy data từ fake API rồi thêm vào đây -->
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Login modal -->
+    <div class="modal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h1>Đăng nhập</h1>
+            </div>
+            <div class="modal-body">
+                <p class="modal-label">Tên đăng nhập</p>
+                <input type="text" placeholder="Nhập tên" class="modal-input" id="modal-input-name">
+                <p class="modal-label">Mật khẩu</p>
+                <input type="password" placeholder="Nhập mật khẩu" class="modal-input" id="modal-input-pass" autocomplete="off">
+                <p id="modal-noti">Sai tên đăng nhập hoặc mật khẩu</p>
+                <div class="modal-button" id="modal-sign-in">Đăng nhập</div>
+                <p id="guest">Đăng nhập với tư cách khách</p>
+            </div>
+        </div>
+    </div>
+    <!-- Setting modal -->
+     <div class="setting">
+        <div class="setting-container">
+            <div class="setting-nav">
+                <h3 id="setting-label"><i class="ti-settings"></i>Setting</h3>
+                <ul id="setting-list">
+                    <li id="theme"><i class="ti-palette"> </i>Theme</li>
+                    <li>Setting 2</li>
+                    <li>Setting 2</li>
+                </ul>
+            </div>
+            <div class="setting-detail">
+                <ul>
+                    <li id="theme-detail">
+                        Màu giao diện: 
+                        <div class="theme-detail-color" id="theme-detail-color-1"></div>
+                        <div class="theme-detail-color" id="theme-detail-color-2"></div>
+                        <div class="theme-detail-color" id="theme-detail-color-3"></div>
+                        <div class="theme-detail-color" id="theme-detail-color-4"></div>
+                        <div class="theme-detail-color" id="theme-detail-color-5"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+     </div>
+    <script src="main.js"></script>
+    <script src="main_modal.js"></script>
+</body>
+</html>
