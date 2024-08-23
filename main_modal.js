@@ -1,11 +1,3 @@
-// Start
-var id = 2;
-changeColorOfOption("backtracking-theory");
-getAlorythm(function(algorythms) {
-    var element = algorythms[id-1];
-    renderAlgorythm(element);
-});
-
 // Backtracking
 document.getElementById("backtracking-theory").onclick = function(e) {
     e.preventDefault();
@@ -17,7 +9,6 @@ document.getElementById("backtracking-theory").onclick = function(e) {
     });
 }
 
-// Other
 document.getElementById("backtracking-sample-code").onclick = function(e) {
     e.preventDefault();
     changeColorOfOption("backtracking-sample-code");
@@ -36,21 +27,12 @@ document.getElementById("backtracking-note").onclick = function(e) {
 // Functions
 
 function changeColorOfOption(id) {
-    document.getElementById("backtracking-theory").style.backgroundColor = "";
-    document.getElementById("backtracking-sample-code").style.backgroundColor = "";
-    document.getElementById("backtracking-example").style.backgroundColor = "";
-    document.getElementById("backtracking-note").style.backgroundColor = "";
+    document.getElementById("option-theory").style.backgroundColor = "";
+    document.getElementById("option-sample-code").style.backgroundColor = "";
+    document.getElementById("option-example").style.backgroundColor = "";
+    document.getElementById("option-note").style.backgroundColor = "";
 
     document.getElementById(id).style.backgroundColor = "white";
-}
-
-function getAlorythm(cb) {
-    var algorythmApi = "https://66c8901d8a477f50dc2e92e8.mockapi.io/algorythm";
-    fetch(algorythmApi)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(cb)
 }
 
 function renderAlgorythm(element) {

@@ -70,9 +70,15 @@
 .body {
     width: 1000px;
 }
-.body li {
+
+.option {
+    width: 100%;
+    height: 30px;
+}
+.option li {
     display: inline-block;
     list-style: none;
+    font-weight: bold;
     width: 150px;
     height: 30px;
     box-sizing: border-box;
@@ -81,16 +87,6 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
-
-.option {
-    width: 100%;
-    height: 30px;
-}
-.option li {
-    font-weight: bold;
-    
-}
-
 
 .theory {
     width: 1000px; /* Chiều rộng */
