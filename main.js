@@ -1,129 +1,62 @@
 var algorythmApi = "https://66c8901d8a477f50dc2e92e8.mockapi.io/algorythm";
+var path = "home";
 
-document.getElementById("de-quy").onclick = function(e) {
+setOnclick("de-quy", 0);
+setOnclick("quay-lui", 1);
+setOnclick("nhanh-can", 2);
+setOnclick("tham-lam", 3);
+setOnclick("chia-de-tri", 4);
+setOnclick("quy-hoach-dong", 5);
+
+document.getElementsByClassName("close-btn")[0].onclick = function(e) {
     e.preventDefault();
-    document.getElementsByClassName("content")[0].style.display = "flex";
-    document.getElementsByClassName("content")[0].style.position = "fixed";
-    changeColorOfOption("option-theory");
-    getAlorythm(function(algorythms) {
-        var element = algorythms[0];
-        renderAlgorythm(element);
-    });
-
-
-    document.getElementById("option-theory").onclick = function(e) {
-        e.preventDefault();
-        changeColorOfOption("option-theory");
-        getAlorythm(function(algorythms) {
-            var element = algorythms[0];
-            renderAlgorythm(element);
-        });
-    }
+    document.getElementsByClassName("content")[0].style.display = "none";
+    document.getElementsByClassName("content")[0].style.position = "";
 }
-document.getElementById("quay-lui").onclick = function(e) {
-    e.preventDefault();
-    document.getElementsByClassName("content")[0].style.display = "flex";
-    document.getElementsByClassName("content")[0].style.position = "fixed";
-    changeColorOfOption("option-theory");
-    getAlorythm(function(algorythms) {
-        var element = algorythms[1];
-        renderAlgorythm(element);
-    });
-
-    document.getElementById("option-theory").onclick = function(e) {
-        e.preventDefault();
-        changeColorOfOption("option-theory");
-        getAlorythm(function(algorythms) {
-            var element = algorythms[1];
-            renderAlgorythm(element);
-        });
-    }
-}
-
-document.getElementById("nhanh-can").onclick = function(e) {
-    e.preventDefault();
-    document.getElementsByClassName("content")[0].style.display = "flex";
-    document.getElementsByClassName("content")[0].style.position = "fixed";
-    changeColorOfOption("option-theory");
-    getAlorythm(function(algorythms) {
-        var element = algorythms[2];
-        renderAlgorythm(element);
-    });
-
-    document.getElementById("option-theory").onclick = function(e) {
-        e.preventDefault();
-        changeColorOfOption("option-theory");
-        getAlorythm(function(algorythms) {
-            var element = algorythms[2];
-            renderAlgorythm(element);
-        });
-    }
-}
-
-document.getElementById("tham-lam").onclick = function(e) {
-    e.preventDefault();
-    document.getElementsByClassName("content")[0].style.display = "flex";
-    document.getElementsByClassName("content")[0].style.position = "fixed";
-    changeColorOfOption("option-theory");
-    getAlorythm(function(algorythms) {
-        var element = algorythms[3];
-        renderAlgorythm(element);
-    });
-
-    document.getElementById("option-theory").onclick = function(e) {
-        e.preventDefault();
-        changeColorOfOption("option-theory");
-        getAlorythm(function(algorythms) {
-            var element = algorythms[3];
-            renderAlgorythm(element);
-        });
-    }
-}
-
-document.getElementById("chia-de-tri").onclick = function(e) {
-    e.preventDefault();
-    document.getElementsByClassName("content")[0].style.display = "flex";
-    document.getElementsByClassName("content")[0].style.position = "fixed";
-    changeColorOfOption("option-theory");
-    getAlorythm(function(algorythms) {
-        var element = algorythms[4];
-        renderAlgorythm(element);
-    });
-
-    document.getElementById("option-theory").onclick = function(e) {
-        e.preventDefault();
-        changeColorOfOption("option-theory");
-        getAlorythm(function(algorythms) {
-            var element = algorythms[4];
-            renderAlgorythm(element);
-        });
-    }
-}
-
-document.getElementById("quy-hoach-dong").onclick = function(e) {
-    e.preventDefault();
-    document.getElementsByClassName("content")[0].style.display = "flex";
-    document.getElementsByClassName("content")[0].style.position = "fixed";
-    changeColorOfOption("option-theory");
-    getAlorythm(function(algorythms) {
-        var element = algorythms[5];
-        renderAlgorythm(element);
-    });
-
-    document.getElementById("option-theory").onclick = function(e) {
-        e.preventDefault();
-        changeColorOfOption("option-theory");
-        getAlorythm(function(algorythms) {
-            var element = algorythms[5];
-            renderAlgorythm(element);
-        });
-    }
-}
-
-
-
 
 // Function
+
+function setOnclick(name, id) {
+    document.getElementById(name).onclick = function(e) {
+        e.preventDefault();
+        document.getElementsByClassName("content")[0].style.display = "flex";
+        document.getElementsByClassName("content")[0].style.position = "fixed";
+        changeColorOfOption("option-theory");
+        var element;
+        getAlorythm(function(algorythms) {
+            element = algorythms[id];
+            renderTheory(element);
+        });
+        path = `${name}/theory`;
+    
+        document.getElementById("option-theory").onclick = function(e) {
+            e.preventDefault();
+            path = `${name}/theory`;
+            changeColorOfOption("option-theory");
+            renderTheory(element);
+        }
+        document.getElementById("option-sample-code").onclick = function(e) {
+            e.preventDefault();
+            path = `${name}/sample-code`;
+            changeColorOfOption("option-sample-code");
+            renderSampleCode(element);
+        }
+        
+        document.getElementById("option-example").onclick = function(e) {
+            e.preventDefault();
+            path = `${name}/example`;
+            changeColorOfOption("option-example");
+            renderExample(element);
+        }
+        
+        document.getElementById("option-note").onclick = function(e) {
+            e.preventDefault();
+            path = `${name}/note`;
+            changeColorOfOption("option-note");
+            renderNote(element);
+        }
+    }
+}
 
 function getAlorythm(cb) {
     fetch(algorythmApi)
@@ -133,7 +66,8 @@ function getAlorythm(cb) {
         .then(cb)
 }
 
-function renderAlgorythm(element) {
+function renderTheory(element) {
+    displayScreen("theory");
     var text = `${element["name"]}`;
     document.getElementById("title-name").textContent = text;
 
@@ -148,6 +82,33 @@ function renderAlgorythm(element) {
     `;
     document.querySelector('.theory').innerHTML = html;
 }
+function renderSampleCode(element) {
+    displayScreen("sample-code");
+    var html = `
+        <h1>sample-code</h1>
+    `;
+    document.querySelector('.sample-code').innerHTML = html;
+}
+function renderExample(element) {
+    displayScreen("example");
+    var html = `
+        <div class="example-illustration"></div>  
+        <ul class="example-list">
+            <li id="${path}/1">${element["example-1-name"]}</li>
+            <li id="${path}/2">${element["example-2-name"]}</li>
+            <li id="${path}/3">${element["example-3-name"]}</li>
+        </ul>
+    `;
+    document.querySelector('.example').innerHTML = html;
+    ganSuKienOnclickChoExample();
+}
+function renderNote(element) {
+    displayScreen("note");
+    var html = `
+        <h1>note</h1>
+    `;
+    document.querySelector('.note').innerHTML = html;
+}
 
 function changeColorOfOption(id) {
     document.getElementById("option-theory").style.backgroundColor = "";
@@ -156,4 +117,79 @@ function changeColorOfOption(id) {
     document.getElementById("option-note").style.backgroundColor = "";
 
     document.getElementById(id).style.backgroundColor = "white";
+}
+
+function displayScreen(className) {
+    document.getElementsByClassName("theory")[0].style.display = "none";
+    document.getElementsByClassName("sample-code")[0].style.display = "none";
+    document.getElementsByClassName("example")[0].style.display = "none";
+    document.getElementsByClassName("note")[0].style.display = "none";
+
+    document.getElementsByClassName(className)[0].style.display = "block";
+}
+
+//
+function ganSuKienOnclickChoExample() {
+    document.getElementById(`${path}/1`).onclick = function(e) {
+        var tmp_path = `${path}/1`;
+        runCode(tmp_path);
+    }
+    document.getElementById(`${path}/2`).onclick = function(e) {
+        var tmp_path = `${path}/2`;
+        runCode(tmp_path);
+    }
+    document.getElementById(`${path}/3`).onclick = function(e) {
+        var tmp_path = `${path}/3`;
+        runCode(tmp_path);
+    }
+}
+
+function runCode(tmp_path) {
+    document.getElementById(`${path}/1`).style.backgroundColor = "";
+    document.getElementById(`${path}/2`).style.backgroundColor = "";
+    document.getElementById(`${path}/3`).style.backgroundColor = "";
+    if (tmp_path[tmp_path.length - 1] == "1") {
+        document.getElementById(`${path}/1`).style.backgroundColor = "rgb(51, 179, 179";
+    } else if (tmp_path[tmp_path.length - 1] == "2") {
+        document.getElementById(`${path}/2`).style.backgroundColor = "rgb(51, 179, 179";
+    } else {
+        document.getElementById(`${path}/3`).style.backgroundColor = "rgb(51, 179, 179";
+    }
+    if (tmp_path == "quay-lui/example/1") {
+        console.log("n-queens");
+    } else if (tmp_path == "quay-lui/example/2") {
+        console.log("hoan vi");
+    } else if (tmp_path == "quay-lui/example/3") {
+        console.log("sudoku");
+    } else if (tmp_path == "de-quy/example/1") {
+        console.log("gia thua");
+    } else if (tmp_path == "de-quy/example/2") {
+        console.log("fibonacci");
+    } else if (tmp_path == "de-quy/example/3") {
+        console.log("thap ha noi");
+    } else if (tmp_path == "nhanh-can/example/1") {
+        console.log("nguoi du lich");
+    } else if (tmp_path == "nhanh-can/example/2") {
+        console.log("xep lich");
+    } else if (tmp_path == "nhanh-can/example/3") {
+        console.log("balo");
+    } else if (tmp_path == "tham-lam/example/1") {
+        console.log("chon hoat dong");
+    } else if (tmp_path == "tham-lam/example/2") {
+        console.log("chon tien xu");
+    } else if (tmp_path == "tham-lam/example/3") {
+        console.log("cay bao trum nho nhat");
+    } else if (tmp_path == "chia-de-tri/example/1") {
+        console.log("merge sort");
+    } else if (tmp_path == "chia-de-tri/example/2") {
+        console.log("quick sort");
+    } else if (tmp_path == "chia-de-tri/example/3") {
+        console.log("binary search");
+    } else if (tmp_path == "quy-hoach-dong/example/1") {
+        console.log("duong di ngan nhat");
+    } else if (tmp_path == "quy-hoach-dong/example/2") {
+        console.log("balo");
+    } else if (tmp_path == "quy-hoach-dong/example/3") {
+        console.log("chuoi con chung dai nhat");
+    }
 }

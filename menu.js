@@ -8,7 +8,7 @@ document.getElementsByClassName("ti-menu")[0].onclick = function(e) {
     }
 }
 
-function display_modal (class_name) {
+function display_modal(class_name) {
     document.getElementsByClassName(class_name)[0].onclick = function(e) {
         e.preventDefault();
         document.getElementsByClassName(class_name)[0].style.display = "none";
@@ -18,8 +18,8 @@ function display_modal (class_name) {
         e.stopPropagation();
     }
 }
-display_modal ("content");
-display_modal ("setting");
+display_modal("content");
+display_modal("setting");
 
 
 document.getElementById("nav-setting").onclick = function(e) {
@@ -54,4 +54,8 @@ document.getElementById("theme").onclick = function(e) {
     e.preventDefault();
     document.getElementById("theme").style.backgroundColor = "rgba(51, 179, 179, 0.4)";
     display_setting_detail("theme-detail");
+}
+
+document.querySelector(".last-nav").onclick = function(e) {
+    location.reload();
 }
