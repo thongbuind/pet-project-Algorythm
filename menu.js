@@ -18,7 +18,7 @@ function display_modal(class_name) {
         e.stopPropagation();
     }
 }
-display_modal("content");
+// display_modal("content");
 display_modal("setting");
 
 
