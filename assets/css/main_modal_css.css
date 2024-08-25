@@ -296,3 +296,133 @@
     display: inline-block;
     text-align: center;
 }
+
+/* Sudoku */
+
+#sudoku-noti {
+    display: none;
+    /* display: inline-block; */
+    color: red;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+}
+
+#sudoku-table {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 270px;
+    height: 270px;
+    display: grid;
+    grid-template-columns: repeat(9, 30px);
+    grid-template-rows: repeat(9, 30px);
+    background-color: black;
+    padding: 1px;
+    font-size: 0;
+}
+
+#sudoku-table p {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid #555;
+    box-sizing: border-box;
+    font-size: 20px; /* Tăng kích thước chữ cho dễ nhìn */
+    text-align: center; /* Căn giữa chữ */
+    line-height: 30px; /* Căn giữa chữ theo chiều dọc */
+}
+#sudoku-table p:hover {
+    background-color: rgb(199, 245, 245);
+}
+/* Viền dày hơn cho các vùng 3x3 */
+#sudoku-table p:nth-child(27n+1),
+#sudoku-table p:nth-child(27n+2),
+#sudoku-table p:nth-child(27n+3),
+#sudoku-table p:nth-child(27n+4),
+#sudoku-table p:nth-child(27n+5),
+#sudoku-table p:nth-child(27n+6),
+#sudoku-table p:nth-child(27n+7),
+#sudoku-table p:nth-child(27n+8),
+#sudoku-table p:nth-child(27n+9),
+#sudoku-table p:nth-child(81n+1) {
+    border-top: 2px solid black;
+}
+#sudoku-table p:nth-child(3n+1),
+#sudoku-table p:nth-child(6n+1),
+#sudoku-table p:nth-child(9n+1),
+#sudoku-table p:nth-child(27n+1),
+#sudoku-table p:nth-child(27n+4),
+#sudoku-table p:nth-child(27n+7) {
+    border-left: 2px solid black;
+}
+#sudoku-table p:nth-child(27n+9),
+#sudoku-table p:nth-child(27n+18),
+#sudoku-table p:nth-child(27n+27) {
+    border-right: 2px solid black;
+}
+#sudoku-table p:nth-child(n+73):nth-child(-n+81) {
+    border-bottom: 2px solid black; 
+}
+
+
+#sudoku-sample-data {
+    display: inline-block;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    font-weight: bold;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+#sudoku-sample-data:hover {
+    cursor: pointer;
+}
+
+#sudoku-num-list {
+    display: block;
+    width: 70px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#sudoku-num-list li {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+#sudoku-num-list li:hover {
+    cursor: pointer;
+    background-color: rgb(41, 170, 170);
+}
+
+#sudoku-solve {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 5px 30px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+#sudoku-solve:hover {
+    cursor: pointer;
+    background-color: rgb(41, 170, 170);
+}
+

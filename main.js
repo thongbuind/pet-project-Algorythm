@@ -92,7 +92,7 @@ function renderSampleCode(element) {
             <li><p>${element["example-1-depcription-3"]}</p></li>
             <li><p>${element["example-1-depcription-4"]}</p></li>
             <li><p>${element["example-1-depcription-5"]}</p></li>
-            <li><p><strong>Xem chi tiết source code</strong> <a href="${element["example-1-link"]}" target="_blank">tại đây</a></p></li>
+            <li><p><strong>Xem chi tiết source code</strong> <a href="${element["example-1-link"]}" target="_blank">tại đây</a> ฅ՞•ﻌ•՞ฅ</p></li>
         </ul>
         <h3>${element["example-2-name"]}</h3>
         <ul>
@@ -101,7 +101,7 @@ function renderSampleCode(element) {
             <li><p>${element["example-2-depcription-3"]}</p></li>
             <li><p>${element["example-2-depcription-4"]}</p></li>
             <li><p>${element["example-2-depcription-5"]}</p></li>
-            <li><p><p><strong>Xem chi tiết source code</strong> <a href="${element["example-2-link"]}" target="_blank">tại đây</a></p></li>
+            <li><p><strong>Xem chi tiết source code</strong> <a href="${element["example-2-link"]}" target="_blank">tại đây</a> ฅ՞•ﻌ•՞ฅ</p></li>
         </ul>
         <h3>${element["example-3-name"]}</h3>
         <ul>
@@ -110,7 +110,7 @@ function renderSampleCode(element) {
             <li><p>${element["example-3-depcription-3"]}</p></li>
             <li><p>${element["example-3-depcription-4"]}</p></li>
             <li><p>${element["example-3-depcription-5"]}</p></li>
-            <li><p><p><strong>Xem chi tiết source code</strong> <a href="${element["example-3-link"]}" target="_blank">tại đây</a></p></li>
+            <li><p><strong>Xem chi tiết source code</strong> <a href="${element["example-3-link"]}" target="_blank">tại đây</a> ฅ՞•ﻌ•՞ฅ</p></li>
         </ul>
     `;
     document.querySelector('.sample-code').innerHTML = html;
@@ -187,13 +187,13 @@ function runCode(tmp_path) {
     } else if (tmp_path == "quay-lui/example/3") {
         SudokuFunction();
     } else if (tmp_path == "de-quy/example/1") {
-        console.log("giai thua");
+        GiaiThuaFunction();
     } else if (tmp_path == "de-quy/example/2") {
-        console.log("fibonacci");
+        FibonacciFunction();
     } else if (tmp_path == "de-quy/example/3") {
-        console.log("thap ha noi");
+        ThapHaNoiFunction();
     } else if (tmp_path == "nhanh-can/example/1") {
-        console.log("nguoi du lich");
+        NguoiDuLichFunction();
     } else if (tmp_path == "nhanh-can/example/2") {
         console.log("xep lich");
     } else if (tmp_path == "nhanh-can/example/3") {
@@ -412,16 +412,208 @@ function HoanViFunction() {
 
 function SudokuFunction() {
     renderSudoku(); // render ra HTML
+    var sudokuArray = Array.from({ length: 9 }, () => Array(9).fill(0));
 
+    // Điền số
+    let selectedP = null; // Biến để lưu trữ thẻ <p> đang được chọn
+    document.querySelectorAll("#sudoku-table p").forEach(function(e1) {
+        e1.addEventListener("click", function() {
+            changeColor(e1);
+            selectedP = e1; // Lưu thẻ <p> hiện tại vào biến
+        });
+    });
+    document.querySelectorAll("#sudoku-num-list li").forEach(function(e2) {
+        e2.addEventListener("click", function() {
+            if (selectedP) { // Kiểm tra xem có thẻ <p> nào được chọn không
+                selectedP.textContent = e2.textContent.trim();
+            }
+        });
+    });
     // Lệnh thực thi chính
+    document.getElementById("sudoku-solve").onclick = function(e) {
+        e.preventDefault();
+        saveInputSudokuArr();
+        if (sudokuSolve(0, 0)) {
+            document.getElementById("sudoku-noti").style.display = "none";
+            displayResult();
+        } else {
+            document.getElementById("sudoku-noti").style.display = "inline-block";
+        }
+    }
 
     // Function
     function renderSudoku() {
         var html = `
-            <h1>Tính năng sudoku đang trong giai đoạn phát triển</h1>
+            <p id="sudoku-noti">Không giải được!</p>
+            <div id="sudoku-sample-data">Số liệu mẫu</div>
+            <div id="sudoku-table">
+                <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+                <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+                <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+                <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+                <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+                <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+                <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+                <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+                <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+            </div>
+            <ul id="sudoku-num-list">
+                <li id="sudoku-num-list-1">1</li>
+                <li id="sudoku-num-list-2">2</li>
+                <li id="sudoku-num-list-3">3</li>
+                <li id="sudoku-num-list-4">4</li>
+                <li id="sudoku-num-list-5">5</li>
+                <li id="sudoku-num-list-6">6</li>
+                <li id="sudoku-num-list-7">7</li>
+                <li id="sudoku-num-list-8">8</li>
+                <li id="sudoku-num-list-9">9</li>
+            </ul>
+            <div id="sudoku-solve">Giải</div>
+        `;
+        document.querySelector('.example-illustration').innerHTML = html;
+    }
+
+    function changeColor(e1) {
+        document.querySelectorAll("#sudoku-table p").forEach(function(e2) {
+            e2.style.backgroundColor = "white";
+        })
+        e1.style.backgroundColor = "rgb(102, 204, 204";
+    }
+    function saveInputSudokuArr() {
+        var index = 0;
+        for (var i=0; i<9; i++) {
+            for (var j=0; j<9; j++) {
+                var tmp = document.querySelectorAll("#sudoku-table p")[index].textContent.trim();
+                if (tmp != "") {
+                    sudokuArray[i][j] = Number(tmp);
+                } else {
+                    sudokuArray[i][j] = 0;
+                }
+                index++;
+            }
+        }
+    }
+    function check(i, j, num) {
+        // check hàng ngang
+        for (var x=0; x<9; x++) {
+            if (sudokuArray[i][x] == num) {
+                return false;
+            }
+        }
+        // check hàng dọc
+        for (var y=0; y<9; y++) {
+            if (sudokuArray[y][j] == num) {
+                return false;
+            }
+        }
+        // check ô 3x3
+        var start_i = i - i%3;
+        var start_j = j - j%3;
+        for (var y=0; y<3; y++) {
+            for (var x=0; x<3; x++) {
+                if (sudokuArray[y+start_i][x+start_j] == num) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    // Thuật toán backtrack
+    function sudokuSolve(i, j) {
+        // nếu đi đến ô cuối cùng rồi thì return
+        if (i == 8 && j == 9) {
+            return true;
+        }
+        // nếu đi đến cuối hàng rồi thì nhảy xuống ô dưới
+        if (j == 9) {
+            i++;
+            j=0;
+        }
+        // nếu ô này có điền số rồi thì chuyển sang ô kế tiếp
+        if (sudokuArray[i][j] != 0) {
+            return sudokuSolve(i, j+1);
+        }
+        for (var num=1; num<=9; num++) {
+            if(check(i, j, num)) {
+                sudokuArray[i][j] = num;
+                if (sudokuSolve(i, j+1)) {
+                    return true;
+                }
+            }
+            sudokuArray[i][j] = 0; // backtrack
+        }
+        return false;
+    }
+    function displayResult() {
+        var index = 0;
+        for (var i=0; i<9; i++) {
+            for (var j=0; j<9; j++) {
+                var tmp = sudokuArray[i][j];
+                if(document.querySelectorAll("#sudoku-table p")[index].textContent.trim() == "") {
+                    document.querySelectorAll("#sudoku-table p")[index].textContent = tmp;
+                    document.querySelectorAll("#sudoku-table p")[index].style.color = "rgb(8, 143, 143)";
+                }
+                index++;
+            }
+        }
+    }
+}
+
+function GiaiThuaFunction() {
+    renderGiaiThua(); // render ra HTML
+
+    // Lệnh thực thi chính
+
+    // Function
+    function renderGiaiThua() {
+        var html = `
+            <h1>Tính năng giai thừa đang trong giai đoạn phát triển</h1>
         `;
         document.querySelector('.example-illustration').innerHTML = html;
     }
 }
+
+function FibonacciFunction() {
+    renderFibonacci(); // render ra HTML
+
+    // Lệnh thực thi chính
+
+    // Function
+    function renderFibonacci() {
+        var html = `
+            <h1>Tính năng Fibonacci đang trong giai đoạn phát triển</h1>
+        `;
+        document.querySelector('.example-illustration').innerHTML = html;
+    }
+}
+
+function ThapHaNoiFunction() {
+    renderThapHaNoi(); // render ra HTML
+
+    // Lệnh thực thi chính
+
+    // Function
+    function renderThapHaNoi() {
+        var html = `
+            <h1>Tính năng bài toán tháp hà nội đang trong giai đoạn phát triển</h1>
+        `;
+        document.querySelector('.example-illustration').innerHTML = html;
+    }
+}
+
+function NguoiDuLichFunction() {
+    renderNguoiDuLich(); // render ra HTML
+
+    // Lệnh thực thi chính
+
+    // Function
+    function renderNguoiDuLich() {
+        var html = `
+            <h1>Tính năng nguoi du lich đang trong giai đoạn phát triển</h1>
+        `;
+        document.querySelector('.example-illustration').innerHTML = html;
+    }
+}
+
 
 
