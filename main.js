@@ -405,6 +405,7 @@ function HoanViFunction() {
     function renderHoanVi() {
         var html = `
             <h1>Tính năng hoán vị đang trong giai đoạn phát triển</h1>
+            <h1>Bí ý tưởng quá huhu :((</h1>
         `;
         document.querySelector('.example-illustration').innerHTML = html;
     }
