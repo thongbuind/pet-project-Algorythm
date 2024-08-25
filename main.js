@@ -92,7 +92,7 @@ function renderSampleCode(element) {
             <li><p>${element["example-1-depcription-3"]}</p></li>
             <li><p>${element["example-1-depcription-4"]}</p></li>
             <li><p>${element["example-1-depcription-5"]}</p></li>
-            <li><p>Bạn có thể tham khảo source code <a href="https://github.com/thongbuind/pet-project-Algorythm" target="_blank">tại đây</a></p></li>
+            <li><p><strong>Xem chi tiết source code</strong> <a href="${element["example-1-link"]}" target="_blank">tại đây</a></p></li>
         </ul>
         <h3>${element["example-2-name"]}</h3>
         <ul>
@@ -101,6 +101,7 @@ function renderSampleCode(element) {
             <li><p>${element["example-2-depcription-3"]}</p></li>
             <li><p>${element["example-2-depcription-4"]}</p></li>
             <li><p>${element["example-2-depcription-5"]}</p></li>
+            <li><p><p><strong>Xem chi tiết source code</strong> <a href="${element["example-2-link"]}" target="_blank">tại đây</a></p></li>
         </ul>
         <h3>${element["example-3-name"]}</h3>
         <ul>
@@ -109,6 +110,7 @@ function renderSampleCode(element) {
             <li><p>${element["example-3-depcription-3"]}</p></li>
             <li><p>${element["example-3-depcription-4"]}</p></li>
             <li><p>${element["example-3-depcription-5"]}</p></li>
+            <li><p><p><strong>Xem chi tiết source code</strong> <a href="${element["example-3-link"]}" target="_blank">tại đây</a></p></li>
         </ul>
     `;
     document.querySelector('.sample-code').innerHTML = html;
@@ -179,12 +181,11 @@ function runCode(tmp_path) {
         document.getElementById(`${path}/3`).style.backgroundColor = "rgb(51, 179, 179";
     }
     if (tmp_path == "quay-lui/example/1") {
-        console.log("n-queens");
         NQueensFunction();
     } else if (tmp_path == "quay-lui/example/2") {
-        console.log("hoan vi");
+        HoanViFunction();
     } else if (tmp_path == "quay-lui/example/3") {
-        console.log("sudoku");
+        SudokuFunction();
     } else if (tmp_path == "de-quy/example/1") {
         console.log("giai thua");
     } else if (tmp_path == "de-quy/example/2") {
@@ -229,7 +230,7 @@ function NQueensFunction() {
     let cnt=0;
     var n_queens_result_index = 1;
 
-    renderNQueens();
+    renderNQueens(); // render ra HTML 
 
     // Lệnh thực thi chính
     document.getElementById("n_queens_button").onclick = function(e) {
@@ -394,4 +395,33 @@ function NQueensFunction() {
         }
     }
 }
+
+function HoanViFunction() {
+    renderHoanVi(); // render ra HTML
+
+    // Lệnh thực thi chính
+
+    // Function
+    function renderHoanVi() {
+        var html = `
+            <h1>Tính năng hoán vị đang trong giai đoạn phát triển</h1>
+        `;
+        document.querySelector('.example-illustration').innerHTML = html;
+    }
+}
+
+function SudokuFunction() {
+    renderSudoku(); // render ra HTML
+
+    // Lệnh thực thi chính
+
+    // Function
+    function renderSudoku() {
+        var html = `
+            <h1>Tính năng sudoku đang trong giai đoạn phát triển</h1>
+        `;
+        document.querySelector('.example-illustration').innerHTML = html;
+    }
+}
+
 

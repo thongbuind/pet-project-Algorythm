@@ -142,7 +142,7 @@
 
 .sample-code li,
 .theory li {
-    margin-bottom: 10px; /* Khoảng cách dưới mỗi mục danh sách */
+    margin: 5px; /* Khoảng cách dưới mỗi mục danh sách */
 }
 
 .screen {

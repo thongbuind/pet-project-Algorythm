@@ -1,7 +1,15 @@
+var size;
+let x = Array(30).fill(0);
+let cot = Array(30).fill(0);
+let cheo_1 = Array(30).fill(0);
+let cheo_2 = Array(30).fill(0);
+let n_queens_result = [];
+let cnt=0;
+
 function luu_ket_qua_n_queens() {
-    n_queens_result[cnt] = [];  // Tạo hàng mới trong mảng 2 chiều
+    n_queens_result[cnt] = [];
     for (var j = 1; j <= size; j++) {
-        n_queens_result[cnt][j - 1] = x[j]; // Lưu giá trị của x từ 1 đến size
+        n_queens_result[cnt][j - 1] = x[j];
     }
 }
 function n_queens(i) {
