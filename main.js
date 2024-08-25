@@ -85,7 +85,31 @@ function renderTheory(element) {
 function renderSampleCode(element) {
     displayScreen("sample-code");
     var html = `
-        <h1>sample-code</h1>
+        <h3>${element["example-1-name"]}</h3>
+        <ul>
+            <li><p>${element["example-1-depcription-1"]}</p></li>
+            <li><p>${element["example-1-depcription-2"]}</p></li>
+            <li><p>${element["example-1-depcription-3"]}</p></li>
+            <li><p>${element["example-1-depcription-4"]}</p></li>
+            <li><p>${element["example-1-depcription-5"]}</p></li>
+            <li><p>Bạn có thể tham khảo source code <a href="https://github.com/thongbuind/pet-project-Algorythm" target="_blank">tại đây</a></p></li>
+        </ul>
+        <h3>${element["example-2-name"]}</h3>
+        <ul>
+            <li><p>${element["example-2-depcription-1"]}</p></li>
+            <li><p>${element["example-2-depcription-2"]}</p></li>
+            <li><p>${element["example-2-depcription-3"]}</p></li>
+            <li><p>${element["example-2-depcription-4"]}</p></li>
+            <li><p>${element["example-2-depcription-5"]}</p></li>
+        </ul>
+        <h3>${element["example-3-name"]}</h3>
+        <ul>
+            <li><p>${element["example-3-depcription-1"]}</p></li>
+            <li><p>${element["example-3-depcription-2"]}</p></li>
+            <li><p>${element["example-3-depcription-3"]}</p></li>
+            <li><p>${element["example-3-depcription-4"]}</p></li>
+            <li><p>${element["example-3-depcription-5"]}</p></li>
+        </ul>
     `;
     document.querySelector('.sample-code').innerHTML = html;
 }
@@ -162,7 +186,7 @@ function runCode(tmp_path) {
     } else if (tmp_path == "quay-lui/example/3") {
         console.log("sudoku");
     } else if (tmp_path == "de-quy/example/1") {
-        console.log("gia thua");
+        console.log("giai thua");
     } else if (tmp_path == "de-quy/example/2") {
         console.log("fibonacci");
     } else if (tmp_path == "de-quy/example/3") {
@@ -323,15 +347,12 @@ function NQueensFunction() {
         document.getElementById("n_queens_result_roll").textContent = `${n_queens_result_index}`;
     }
 
-    // Functions //
     function luu_ket_qua_n_queens() {
         n_queens_result[cnt] = [];  // Tạo hàng mới trong mảng 2 chiều
         for (var j = 1; j <= size; j++) {
             n_queens_result[cnt][j - 1] = x[j]; // Lưu giá trị của x từ 1 đến size
         }
     }
-
-    // Thuật toán
     function n_queens(i) {
         for (var j=1; j<=size; j++) {
             if (cot[j] == 0 && cheo_1[i - j + size] == 0 && cheo_2[i + j - 1] == 0) {

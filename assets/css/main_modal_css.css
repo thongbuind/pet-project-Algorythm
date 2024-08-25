@@ -99,6 +99,7 @@
     border-top-right-radius: 10px;
 }
 
+.sample-code,
 .theory {
     width: 1000px; /* Chiều rộng */
     height: 438px; /* Chiều cao */
@@ -115,6 +116,7 @@
     top: 0;
 }
 
+.sample-code h3,
 .theory h3 {
     font-size: 1.5em; /* Kích thước chữ của tiêu đề */
     margin-top: 0; /* Loại bỏ khoảng cách trên tiêu đề */
@@ -122,6 +124,7 @@
     color: #333; /* Màu chữ tiêu đề */
 }
 
+.sample-code p,
 .theory p {
     font-size: 1em; /* Kích thước chữ của đoạn văn */
     line-height: 1.6; /* Khoảng cách giữa các dòng */
@@ -129,12 +132,15 @@
     color: #666; /* Màu chữ đoạn văn */
 }
 
+.sample-code ul,
 .theory ul {
     list-style: disc; /* Dấu đầu dòng cho danh sách */
     padding-left: 20px; /* Khoảng cách bên trái cho danh sách */
     color: #666; /* Màu chữ danh sách */
+    list-style: none;
 }
 
+.sample-code li,
 .theory li {
     margin-bottom: 10px; /* Khoảng cách dưới mỗi mục danh sách */
 }
