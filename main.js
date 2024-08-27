@@ -415,21 +415,22 @@ function SudokuFunction() {
     renderSudoku(); // render ra HTML
     var sudokuArray = Array.from({ length: 9 }, () => Array(9).fill(0));
 
+    // Sample data
+    document.getElementById("sudoku-sample-data").onclick = function(e) {
+        e.preventDefault();
+        displaySampleData();
+    }
+
     // Điền số
-    let selectedP = null; // Biến để lưu trữ thẻ <p> đang được chọn
-    document.querySelectorAll("#sudoku-table p").forEach(function(e1) {
-        e1.addEventListener("click", function() {
-            changeColor(e1);
-            selectedP = e1; // Lưu thẻ <p> hiện tại vào biến
-        });
-    });
-    document.querySelectorAll("#sudoku-num-list li").forEach(function(e2) {
-        e2.addEventListener("click", function() {
-            if (selectedP) { // Kiểm tra xem có thẻ <p> nào được chọn không
-                selectedP.textContent = e2.textContent.trim();
-            }
-        });
-    });
+    fillData();
+
+    // Clear
+    document.getElementById("sudoku-clear").onclick = function(e) {
+        e.preventDefault();
+        clearTable();
+        fillData();
+    }
+
     // Lệnh thực thi chính
     document.getElementById("sudoku-solve").onclick = function(e) {
         e.preventDefault();
@@ -447,6 +448,7 @@ function SudokuFunction() {
         var html = `
             <p id="sudoku-noti">Không giải được!</p>
             <div id="sudoku-sample-data">Số liệu mẫu</div>
+            <div id="sudoku-clear">Làm mới</div>
             <div id="sudoku-table">
                 <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
                 <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
@@ -459,6 +461,7 @@ function SudokuFunction() {
                 <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
             </div>
             <ul id="sudoku-num-list">
+                <li id="sudoku-num-list-dedete">Xoá</li>
                 <li id="sudoku-num-list-1">1</li>
                 <li id="sudoku-num-list-2">2</li>
                 <li id="sudoku-num-list-3">3</li>
@@ -472,6 +475,29 @@ function SudokuFunction() {
             <div id="sudoku-solve">Giải</div>
         `;
         document.querySelector('.example-illustration').innerHTML = html;
+    }
+
+    function fillData() {
+        let selectedP = null; // Biến để lưu trữ thẻ <p> đang được chọn
+        document.querySelectorAll("#sudoku-table p").forEach(function(e) {
+            e.addEventListener("click", function() {
+                changeColor(e);
+                selectedP = e; // Lưu thẻ <p> hiện tại vào biến
+            });
+        });
+        document.querySelectorAll("#sudoku-num-list li").forEach(function(e) {
+            e.addEventListener("click", function() {
+                if (selectedP) { // Kiểm tra xem có thẻ <p> nào được chọn không
+                    // selectedP.textContent = e.textContent.trim();
+                    var num = e.textContent.trim();
+                    if (num > 0 && num < 10) {
+                        selectedP.textContent = num;
+                    } else {
+                        selectedP.textContent = "";
+                    }
+                }
+            });
+        });
     }
 
     function changeColor(e1) {
@@ -557,6 +583,119 @@ function SudokuFunction() {
                 index++;
             }
         }
+    }
+    function displaySampleData() {
+        let originalTable = `
+            <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+            <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+            <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+            <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+            <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+            <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+            <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+            <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+            <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+        `;
+        document.getElementById("sudoku-table").innerHTML = originalTable;
+        let sudokuSampleData = [
+            [
+                [8, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 3, 6, 0, 0, 0, 0, 0],
+                [0, 7, 0, 0, 9, 0, 2, 0, 0],
+                [0, 5, 0, 0, 0, 7, 0, 0, 0],
+                [0, 0, 0, 0, 4, 5, 7, 0, 0],
+                [0, 0, 0, 1, 0, 0, 0, 3, 0],
+                [0, 0, 1, 0, 0, 0, 0, 6, 8],
+                [0, 0, 8, 5, 0, 0, 0, 1, 0],
+                [0, 9, 0, 0, 0, 0, 4, 0, 0]
+            ],
+            [
+                [0, 0, 5, 3, 0, 0, 0, 0, 0],
+                [8, 0, 0, 0, 0, 0, 0, 2, 0],
+                [0, 7, 0, 0, 1, 0, 5, 0, 0],
+                [4, 0, 0, 0, 0, 5, 3, 0, 0],
+                [0, 1, 0, 0, 7, 0, 0, 0, 6],
+                [0, 0, 3, 2, 0, 0, 0, 8, 0],
+                [0, 6, 0, 5, 0, 0, 0, 0, 9],
+                [0, 0, 4, 0, 0, 0, 0, 3, 0],
+                [0, 0, 0, 0, 0, 9, 7, 0, 0]
+            ],
+            [
+                [0, 2, 0, 0, 0, 0, 0, 0, 3],
+                [0, 0, 0, 6, 0, 0, 5, 0, 0],
+                [0, 0, 7, 0, 0, 0, 0, 0, 8],
+                [0, 0, 0, 0, 3, 0, 0, 0, 0],
+                [0, 4, 0, 0, 7, 0, 0, 6, 0],
+                [0, 0, 0, 0, 2, 0, 0, 0, 0],
+                [1, 0, 0, 0, 0, 0, 9, 0, 0],
+                [0, 0, 8, 0, 0, 9, 0, 0, 0],
+                [4, 0, 0, 0, 0, 0, 0, 1, 0]
+            ],
+            [
+                [0, 0, 0, 0, 0, 4, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 3, 0],
+                [0, 0, 0, 0, 1, 0, 0, 0, 8],
+                [0, 0, 0, 0, 0, 0, 9, 0, 0],
+                [5, 0, 0, 0, 0, 0, 0, 7, 0],
+                [0, 0, 0, 2, 0, 0, 0, 0, 3],
+                [0, 6, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 8, 0, 0],
+                [0, 0, 0, 0, 9, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 9, 0, 0, 0, 0, 0, 0],
+                [0, 5, 0, 0, 3, 0, 0, 7, 8],
+                [0, 0, 0, 0, 0, 0, 0, 0, 6],
+                [0, 0, 5, 0, 7, 0, 0, 0, 0],
+                [0, 0, 0, 8, 0, 4, 0, 0, 0],
+                [0, 0, 0, 0, 2, 0, 5, 0, 0],
+                [0, 0, 7, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 0, 4, 0],
+                [0, 2, 0, 6, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 7, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 5],
+                [0, 0, 4, 0, 0, 1, 0, 6, 0],
+                [0, 0, 0, 0, 0, 0, 2, 0, 0],
+                [1, 0, 5, 0, 0, 0, 0, 0, 0],
+                [0, 3, 0, 0, 0, 0, 0, 0, 0],
+                [0, 6, 0, 0, 0, 9, 0, 0, 0],
+                [0, 9, 0, 4, 0, 0, 0, 0, 0],
+                [8, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 0, 0, 0, 5, 0],
+                [0, 0, 0, 0, 0, 0, 3, 0, 0],
+                [4, 0, 0, 0, 0, 7, 0, 0, 0],
+                [0, 0, 0, 0, 2, 0, 0, 0, 0],
+                [5, 0, 0, 0, 0, 0, 1, 0, 0],
+                [0, 0, 0, 0, 0, 6, 0, 0, 4],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 3, 7, 0, 0, 0, 0, 0, 0],
+                [0, 6, 0, 0, 0, 0, 0, 0, 9]
+            ]
+        ];
+        var randomNum = Math.floor(Math.random() * 7);
+        console.log(randomNum);
+        var data = sudokuSampleData[randomNum];
+
+        var index = 0;
+        for (var i=0; i<9; i++)  {
+            for (var j=0; j<9; j++) {
+                var tmp = data[i][j];
+                if (tmp != 0) {
+                    document.querySelectorAll("#sudoku-table p")[index].textContent = tmp;
+                }
+                index++;
+            }
+        }
+    }
+    function clearTable() {
+        document.querySelectorAll("#sudoku-table p").forEach(function(e) {
+            e.textContent = "";
+            e.style.color = "black";
+        });
     }
 }
 

@@ -382,8 +382,21 @@
     font-weight: bold;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
+#sudoku-clear {
+    display: inline-block;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 150px;
+    left: 60px;
+    font-weight: bold;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+#sudoku-clear:hover,
 #sudoku-sample-data:hover {
     cursor: pointer;
+    background-color: rgb(41, 170, 170);
 }
 
 #sudoku-num-list {
@@ -419,6 +432,7 @@
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
+    font-weight: bold;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 #sudoku-solve:hover {
