@@ -749,7 +749,45 @@ function NguoiDuLichFunction() {
     // Function
     function renderNguoiDuLich() {
         var html = `
-            <h1>Tính năng nguoi du lich đang trong giai đoạn phát triển</h1>
+            <div id="tsp-total-city">
+                Tổng số thành phố:
+                <div id="tsp-roll">
+                    <div id="tsp-roll-down">-</div>
+                    <span id="tsp-roll-num">4</span>
+                    <div id="tsp-roll-up">+</div>
+                </div>
+            </div>
+            <div id="tsp-cost-matrix">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+                <input type="text" class="tsp-cell">
+            </div>
+            <div id="tsp-result">
+                <div>Thứ tự thành phố đi qua: <span></span></div>
+                <div><strong>Tổng chi phí:</strong> <span></span></div>
+            </div>
         `;
         document.querySelector('.example-illustration').innerHTML = html;
     }

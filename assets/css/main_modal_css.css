@@ -440,3 +440,89 @@
     background-color: rgb(41, 170, 170);
 }
 
+/* Nguoi du lich */
+
+#tsp-total-city {
+    display: inline-block;
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    padding: 10px;
+    line-height: 30px;
+}
+#tsp-roll {
+    display: inline-block;
+    background-color: red;
+    width: 100px;
+    height: 30px;
+    font-size: 0;
+    border-radius: 5px;
+}
+#tsp-roll-down {
+    display: inline-block;
+    text-align: center;
+    width: 33px;
+    font-size: 26px;
+}
+#tsp-roll-num {
+    display: inline-block;
+    text-align: center;
+    width: 33px;
+    font-size: 20px;
+}
+#tsp-roll-up {
+    display: inline-block;
+    text-align: center;
+    width: 33px;
+    font-size: 20px;
+}
+#tsp-roll-down:hover,
+#tsp-roll-up:hover {
+    cursor: pointer;
+}
+
+#tsp-cost-matrix {
+    width: 250px;
+    height: 250px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 10px));
+    font-size: 0;
+    border: 1px solid black;
+}
+.tsp-cell {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+#tsp-result {
+    color: black;
+    display: inline-block;
+    width: 500px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(169, 0, 0, 0.357);
+}
+#tsp-result div{
+    line-height: 25px;
+
+}
+

@@ -89,7 +89,11 @@ input::placeholder {
     height: 100px;
 }
 
-.header .ti-menu {
+.header .icon-menu {
+    top: 30px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
     float: right;
     color: white;
     line-height: 100px;
@@ -97,7 +101,7 @@ input::placeholder {
     position: relative;
 }
 
-.header .ti-menu:hover {
+.header .icon-menu:hover {
     font-weight: bolder;
     cursor: pointer;
 }
@@ -108,7 +112,7 @@ input::placeholder {
     min-height: 170px;
     background-color: white;
     position: absolute;
-    top: 80px;
+    top: 50px;
     right: 0;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
