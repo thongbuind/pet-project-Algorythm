@@ -53,8 +53,8 @@ document.getElementById("modal-sign-in").onclick = async function(e) {
         document.getElementById("user-name").textContent = inputName;
         var elements = document.getElementsByClassName("cell");
         Array.from(elements).forEach(function(element) {
-        element.style.display = "inline-block";
-    });
+            element.style.display = "inline-block";
+        });
     } else {
         document.getElementById("modal-noti").style.display = "block";
     }
