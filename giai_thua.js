@@ -6,7 +6,7 @@ export function GiaiThuaFunction() {
     // Function
     function renderGiaiThua() {
         var html = `
-            <h1>Tính năng giai thừa đang trong giai đoạn phát triển</h1>
+            <h1>Mô hình giai thừa đang trong giai đoạn phát triển</h1>
             <h2>
                 <strong>Các minh hoạ đã có:</strong>
                 <ul>

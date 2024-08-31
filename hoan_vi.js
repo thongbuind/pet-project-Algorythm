@@ -6,7 +6,7 @@ export function HoanViFunction() {
     // Function
     function renderHoanVi() {
         var html = `
-            <h1>Tính năng hoán vị đang trong giai đoạn phát triển</h1>
+            <h1>Mô hình hoán vị đang trong giai đoạn phát triển</h1>
             <h2>
                 <strong>Các minh hoạ đã có:</strong>
                 <ul>

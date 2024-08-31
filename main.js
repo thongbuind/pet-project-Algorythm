@@ -7,7 +7,12 @@ import { HoanViFunction } from "./hoan_vi.js";
 import { ThapHaNoiFunction } from "./thap_ha_noi.js";
 import { FibonacciFunction } from "./fibonacci.js";
 import { GiaiThuaFunction } from "./giai_thua.js";
-
+import { XepLichFunction } from "./xep_lich.js";
+import { QuickSortFunction } from "./quick_sort.js";
+import { MergeSortFunction } from "./merge_sort.js";
+import { BinarySearchFunction } from "./binary_search.js";
+import { CayBaoTrumNhoNhatFunction } from "./mst.js";
+import { ChuoiConChungDaiNhatFunction } from "./lcs.js";
 
 var algorythmApi = "https://66c8901d8a477f50dc2e92e8.mockapi.io/algorythm";
 var path = "home";
@@ -90,6 +95,8 @@ function renderTheory(element) {
         <p>${element["theory-p-3"]}</p>
         <h3>${element["theory-title-3"]}</h3>
         <p>${element["theory-p-4"]}</p>
+        <h3>${element["theory-title-4"]}</h3>
+        <p>${element["theory-p-5"]}</p>
     `;
     document.querySelector('.theory').innerHTML = html;
 }
@@ -206,7 +213,7 @@ function runCode(tmp_path) {
     } else if (tmp_path == "nhanh-can/example/1") {
         NguoiDuLichFunction();
     } else if (tmp_path == "nhanh-can/example/2") {
-        console.log("xep lich");
+        XepLichFunction();
     } else if (tmp_path == "nhanh-can/example/3") {
         console.log("balo");
     } else if (tmp_path == "tham-lam/example/1") {
@@ -214,19 +221,19 @@ function runCode(tmp_path) {
     } else if (tmp_path == "tham-lam/example/2") {
         console.log("chon tien xu");
     } else if (tmp_path == "tham-lam/example/3") {
-        console.log("cay bao trum nho nhat");
+        CayBaoTrumNhoNhatFunction();
     } else if (tmp_path == "chia-de-tri/example/1") {
-        console.log("merge sort");
+        MergeSortFunction();
     } else if (tmp_path == "chia-de-tri/example/2") {
-        console.log("quick sort");
+        QuickSortFunction();
     } else if (tmp_path == "chia-de-tri/example/3") {
-        console.log("binary search");
+        BinarySearchFunction();
     } else if (tmp_path == "quy-hoach-dong/example/1") {
         console.log("duong di ngan nhat");
     } else if (tmp_path == "quy-hoach-dong/example/2") {
         console.log("balo");
     } else if (tmp_path == "quy-hoach-dong/example/3") {
-        console.log("chuoi con chung dai nhat");
+        ChuoiConChungDaiNhatFunction();
     }
 }
 

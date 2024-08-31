@@ -6,7 +6,7 @@ export function ThapHaNoiFunction() {
     // Function
     function renderThapHaNoi() {
         var html = `
-            <h1>Tính năng bài toán tháp hà nội đang trong giai đoạn phát triển</h1>
+            <h1>Mô hình bài toán tháp hà nội đang trong giai đoạn phát triển</h1>
             <h2>
                 <strong>Các minh hoạ đã có:</strong>
                 <ul>

@@ -1,12 +1,12 @@
-export function FibonacciFunction() {
-    renderFibonacci(); // render ra HTML
+export function BinarySearchFunction() {
+    renderBinarySearch(); // render ra HTML
 
     // Lệnh thực thi chính
 
     // Function
-    function renderFibonacci() {
+    function renderBinarySearch() {
         var html = `
-            <h1>Mô hình Fibonacci đang trong giai đoạn phát triển</h1>
+            <h1>Mô hình bài toán binary search đang trong giai đoạn phát triển</h1>
             <h2>
                 <strong>Các minh hoạ đã có:</strong>
                 <ul>
