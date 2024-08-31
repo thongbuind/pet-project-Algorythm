@@ -2,15 +2,16 @@
 import { NQueensFunction } from "./n_queens.js";
 import { SudokuFunction } from "./sudoku.js";
 import { NguoiDuLichFunction } from "./tsp.js";
-// chưa xong
+// đang làm
 import { HoanViFunction } from "./hoan_vi.js";
+import { GiaiThuaFunction } from "./giai_thua.js";
+import { BinarySearchFunction } from "./binary_search.js";
+// chưa làm
 import { ThapHaNoiFunction } from "./thap_ha_noi.js";
 import { FibonacciFunction } from "./fibonacci.js";
-import { GiaiThuaFunction } from "./giai_thua.js";
 import { XepLichFunction } from "./xep_lich.js";
 import { QuickSortFunction } from "./quick_sort.js";
 import { MergeSortFunction } from "./merge_sort.js";
-import { BinarySearchFunction } from "./binary_search.js";
 import { CayBaoTrumNhoNhatFunction } from "./mst.js";
 import { ChuoiConChungDaiNhatFunction } from "./lcs.js";
 
