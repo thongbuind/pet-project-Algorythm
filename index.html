@@ -6,11 +6,8 @@
     <title>Algorythm</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/main_modal_css.css">
-    <!-- <link rel="stylesheet" href="./assets/font/themify-icons/themify-icons.css"> -->
-    <link rel="stylesheet" href="https://thongbuind.github.io/pet-project-Algorythm/assets/font/themify-icons/themify-icons.css">
     <!-- <link rel="icon" type="image/png" href="./assets/img/logo2.png"> -->
-    <link rel="icon" type="image/png" href="https://thongbuind.github.io/pet-project-Algorythm/assets/img/logo2.png">
-</head>
+    <link rel="icon" type="image/png" href="https://thongbuind.github.io/petProject-Algorythm/assets/img/logo2.png">
 <body>
     <!-- Header -->
     <div class="header">
@@ -25,6 +22,9 @@
                     <li class="nav" id="nav-setting">
                         <h4>Cài đặt</h4>
                     </li>
+                    <li class="nav" id="nav-edit">
+                        <h4>Chỉnh sửa</h4>
+                    </li>
                     <li class="nav">
                         <h4>Other navigation</h4>
                     </li>
@@ -37,12 +37,12 @@
     </div>
     <!-- Main page -->
     <div class="main">
-        <h3 class="cell" id="de-quy">Sơ đồ thuật toán cơ bản<br>~~~ Đệ quy ~~~</h3>
-        <h3 class="cell" id="quay-lui">Sơ đồ thuật toán cơ bản<br>~~~ Quay lui ~~~</h3>
-        <h3 class="cell" id="nhanh-can">Sơ đồ thuật toán cơ bản<br>~~~ Nhánh và cận ~~~</h3>
-        <h3 class="cell" id="tham-lam">Sơ đồ thuật toán cơ bản<br>~~~ Tham lam ~~~</h3>
-        <h3 class="cell" id="chia-de-tri">Sơ đồ thuật toán cơ bản<br>~~~ Chia để trị ~~~</h3>
-        <h3 class="cell" id="quy-hoach-dong">Sơ đồ thuật toán cơ bản<br>~~~ Quy hoạch động ~~~</h3>
+        <h3 class="cell" id="de-quy">Thuật toán cơ bản<br>~~~ Đệ quy ~~~</h3>
+        <h3 class="cell" id="quay-lui">Thuật toán cơ bản<br>~~~ Quay lui ~~~</h3>
+        <h3 class="cell" id="nhanh-can">Thuật toán cơ bản<br>~~~ Nhánh và cận ~~~</h3>
+        <h3 class="cell" id="tham-lam">Thuật toán cơ bản<br>~~~ Tham lam ~~~</h3>
+        <h3 class="cell" id="chia-de-tri">Thuật toán cơ bản<br>~~~ Chia để trị ~~~</h3>
+        <h3 class="cell" id="quy-hoach-dong">Thuật toán cơ bản<br>~~~ Quy hoạch động ~~~</h3>
     </div>
     <!-- Algorythm content -->
     <div class="content">
@@ -95,7 +95,7 @@
         </div>
     </div>
     <!-- Setting modal -->
-     <div class="setting">
+    <div class="setting">
         <div class="setting-container">
             <div class="setting-nav">
                 <h3 id="setting-label">Setting</h3>
@@ -118,9 +118,38 @@
                 </ul>
             </div>
         </div>
-     </div>
+    </div>
+    <!-- Edit modal -->
+    <div class="content" id="edit">
+        <div class="content-container">
+            <div class="title">
+                <div class="wrapper">
+                    <div class="btn close-btn"></div>
+                    <div class="btn min-btn"></div>
+                    <div class="btn max-btn"></div>
+                </div>
+
+            </div>
+            <div class="edit-body">
+                <div class="edit-screen">
+                    
+                </div>
+                <div class="edit-list">
+                    <ul>
+                        <li id="edit-de-quy">Đệ quy</li>
+                        <li id="edit-quay-lui">Quay lui</li>
+                        <li id="edit-nhanh-can">Nhánh và cận</li>
+                        <li id="edit-tham-lam">Tham lam</li>
+                        <li id="edit-chia-de-tri">Chia để trị</li>
+                        <li id="edit-quy-hoach-dong">Quy hoạch động</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="login.js"></script>
     <script src="menu.js"></script>
     <script type="module" src="main.js"></script>
+    <script src="edit.js"></script>
 </body>
 </html>

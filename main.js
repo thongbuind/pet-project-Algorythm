@@ -1,19 +1,19 @@
 // đã xong
-import { NQueensFunction } from "./n_queens.js";
-import { SudokuFunction } from "./sudoku.js";
-import { NguoiDuLichFunction } from "./tsp.js";
+import { NQueensFunction } from "./src/n_queens.js";
+import { SudokuFunction } from "./src/sudoku.js";
+import { NguoiDuLichFunction } from "./src/tsp.js";
 // đang làm
-import { HoanViFunction } from "./hoan_vi.js";
-import { GiaiThuaFunction } from "./giai_thua.js";
-import { BinarySearchFunction } from "./binary_search.js";
+import { FibonacciFunction } from "./src/fibonacci.js";
+import { GiaiThuaFunction } from "./src/giai_thua.js";
+import { HoanViFunction } from "./src/hoan_vi.js";
+import { BinarySearchFunction } from "./src/binary_search.js";
 // chưa làm
-import { ThapHaNoiFunction } from "./thap_ha_noi.js";
-import { FibonacciFunction } from "./fibonacci.js";
-import { XepLichFunction } from "./xep_lich.js";
-import { QuickSortFunction } from "./quick_sort.js";
-import { MergeSortFunction } from "./merge_sort.js";
-import { CayBaoTrumNhoNhatFunction } from "./mst.js";
-import { ChuoiConChungDaiNhatFunction } from "./lcs.js";
+import { ThapHaNoiFunction } from "./src/thap_ha_noi.js";
+import { XepLichFunction } from "./src/xep_lich.js";
+import { QuickSortFunction } from "./src/quick_sort.js";
+import { MergeSortFunction } from "./src/merge_sort.js";
+import { CayBaoTrumNhoNhatFunction } from "./src/mst.js";
+import { ChuoiConChungDaiNhatFunction } from "./src/lcs.js";
 
 var algorythmApi = "https://66c8901d8a477f50dc2e92e8.mockapi.io/algorythm";
 var path = "home";
@@ -25,19 +25,17 @@ setOnclick("tham-lam", 3);
 setOnclick("chia-de-tri", 4);
 setOnclick("quy-hoach-dong", 5);
 
-document.getElementsByClassName("close-btn")[0].onclick = function(e) {
-    e.preventDefault();
-    document.getElementsByClassName("content")[0].style.display = "none";
-    document.getElementsByClassName("content")[0].style.position = "";
-}
-
 // Function
-
 function setOnclick(name, id) {
     document.getElementById(name).onclick = function(e) {
         e.preventDefault();
         document.getElementsByClassName("content")[0].style.display = "flex";
         document.getElementsByClassName("content")[0].style.position = "fixed";
+        document.getElementsByClassName("close-btn")[0].onclick = function(e) {
+            e.preventDefault();
+            document.getElementsByClassName("content")[0].style.display = "none";
+            document.getElementsByClassName("content")[0].style.position = "";
+        }
         changeColorOfOption("option-theory");
         var element;
         getAlorythm(function(algorythms) {
@@ -58,14 +56,12 @@ function setOnclick(name, id) {
             changeColorOfOption("option-sample-code");
             renderSampleCode(element);
         }
-        
         document.getElementById("option-example").onclick = function(e) {
             e.preventDefault();
             path = `${name}/example`;
             changeColorOfOption("option-example");
             renderExample(element);
         }
-        
         document.getElementById("option-note").onclick = function(e) {
             e.preventDefault();
             path = `${name}/note`;
@@ -193,11 +189,11 @@ function runCode(tmp_path) {
     document.getElementById(`${path}/2`).style.backgroundColor = "";
     document.getElementById(`${path}/3`).style.backgroundColor = "";
     if (tmp_path[tmp_path.length - 1] == "1") {
-        document.getElementById(`${path}/1`).style.backgroundColor = "rgb(51, 179, 179";
+        document.getElementById(`${path}/1`).style.backgroundColor = "rgb(51, 179, 179)";
     } else if (tmp_path[tmp_path.length - 1] == "2") {
-        document.getElementById(`${path}/2`).style.backgroundColor = "rgb(51, 179, 179";
+        document.getElementById(`${path}/2`).style.backgroundColor = "rgb(51, 179, 179)";
     } else {
-        document.getElementById(`${path}/3`).style.backgroundColor = "rgb(51, 179, 179";
+        document.getElementById(`${path}/3`).style.backgroundColor = "rgb(51, 179, 179)";
     }
     if (tmp_path == "quay-lui/example/1") {
         NQueensFunction();

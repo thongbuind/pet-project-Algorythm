@@ -59,3 +59,17 @@ document.getElementById("theme").onclick = function(e) {
 document.querySelector(".last-nav").onclick = function(e) {
     location.reload();
 }
+
+
+document.getElementById("nav-edit").onclick = function(e) {
+    e.preventDefault();
+    document.getElementsByClassName("content")[1].style.display = "flex";
+    document.getElementsByClassName("content")[1].style.position = "fixed";
+    document.getElementsByClassName("close-btn")[1].onclick = function(e) {
+        e.preventDefault();
+        document.getElementsByClassName("content")[1].style.display = "none";
+        document.getElementsByClassName("content")[1].style.position = "";
+    }
+    
+}
+

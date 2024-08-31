@@ -315,3 +315,152 @@ input::placeholder {
     color: rgb(8, 143, 143);
     font-size: large;
 }
+
+/* Edit */
+.edit-body {
+    width: 1000px;
+    height: 468px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.edit-list {
+    background-color: white;
+    margin: 10px;
+    box-sizing: border-box;
+    position: absolute;
+    width: 250px;
+    height: 448px;
+    top: 0;
+    right: 0;
+    overflow: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.edit-list li {
+    display: block;
+    margin: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-weight: bold;
+    width: 190px;
+    height: auto;
+    padding: 10px 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.edit-list li:hover {
+    cursor: pointer;
+}
+
+.edit-screen {
+    display: block;
+    width: 720px;
+    height: 448px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+}
+
+.ex-name,
+#theory-title-1,
+#theory-title-2,
+#theory-title-3,
+#theory-title-4 {
+    display: block;
+    width: 200px;
+    font-weight: bold;
+    line-height: 30px;
+    height: 30px;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    resize: none;
+    box-sizing: border-box;
+}
+.ex-depcription,
+#theory-p-1,
+#theory-p-2,
+#theory-p-3,
+#theory-p-4,
+#theory-p-5,
+#theory-p-6,
+#theory-p-7,
+#theory-p-8 {
+    display: block;
+    width: 700px;
+    height: 100px;
+    overflow: auto;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    resize: none;
+    box-sizing: border-box;
+}
+
+.edit-form {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+.edit-header {
+    width: 100%;
+    height: 30px;
+    color: white;
+    background-color: rgb(8, 143, 143);
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#edit-push {
+    all: unset;
+    display: inline-block;
+    color: black;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+#edit-back {
+    display: inline-block;
+    color: black;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+#edit-back:hover,
+#edit-push:hover {
+    color: white;
+    cursor: pointer;
+    background-color: rgb(8, 143, 143);
+}
