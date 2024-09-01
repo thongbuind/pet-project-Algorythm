@@ -1,4 +1,4 @@
-document.getElementsByClassName("icon-menu")[0].onclick = function(e) {
+document.getElementsByClassName("menu")[0].onclick = function(e) {
     e.preventDefault();
     var element = document.getElementsByClassName("sub-menu")[0];
     if (element.style.display == "" || element.style.display == "none") {
