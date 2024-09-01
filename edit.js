@@ -7,16 +7,25 @@ document.getElementById("nav-edit").onclick = function(e) {
         document.getElementsByClassName("content")[1].style.display = "none";
         document.getElementsByClassName("content")[1].style.position = "";
     }
-    SetOnclickEdit("edit-de-quy");
-    SetOnclickEdit("edit-quay-lui");
-    SetOnclickEdit("edit-tham-lam");
-    SetOnclickEdit("edit-nhanh-can");
-    SetOnclickEdit("edit-chia-de-tri");
-    SetOnclickEdit("edit-quy-hoach-dong");
+    SetOnclickEdit("edit-de-quy", 1);
+    SetOnclickEdit("edit-quay-lui", 2);
+    SetOnclickEdit("edit-tham-lam", 3);
+    SetOnclickEdit("edit-nhanh-can", 4);
+    SetOnclickEdit("edit-chia-de-tri", 5);
+    SetOnclickEdit("edit-quy-hoach-dong", 6);
     
 }
 
 // Functions
+function SetOnclickEdit(name, id) { 
+    document.getElementById(name).onclick = function(e) {
+        e.preventDefault();
+        getPost(renderPost);
+        changeListColor(name);
+
+    }
+}
+
 function getPost(cb) {
     var link = "https://66c8901d8a477f50dc2e92e8.mockapi.io/algorythm";
     fetch(link)
@@ -68,15 +77,6 @@ function renderPost() {
         </form>
     `;
     document.querySelector(".edit-screen").innerHTML = html;
-}
-
-function SetOnclickEdit(name, id) {
-    document.getElementById(name).onclick = function(e) {
-        e.preventDefault();
-        getPost(renderPost);
-        changeListColor(name);
-
-    }
 }
 
 function changeListColor(name) {
