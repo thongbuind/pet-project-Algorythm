@@ -323,7 +323,7 @@
     background-color: white;
     border: 1px solid #555;
     box-sizing: border-box;
-    font-size: 20px; /* Tăng kích thước chữ cho dễ nhìn */
+    font-size: 20px;
     text-align: center; /* Căn giữa chữ */
     line-height: 30px; /* Căn giữa chữ theo chiều dọc */
 }
@@ -549,3 +549,93 @@ input.tsp-cell::placeholder {
 
 }
 
+/* binary search */
+
+#binary-search-text-input,
+#binary-search-solve,
+#binary-search-sample-data {
+    display: inline-block;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(41, 170, 170);
+    font-weight: bold;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    background-color: white;
+}
+#binary-search-solve:hover,
+#binary-search-sample-data:hover {
+    cursor: pointer;
+    background-color: rgb(41, 170, 170);
+}
+#binary-search-x-input {
+    display: inline-block;
+    width: 20px;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(41, 170, 170);
+    font-weight: bold;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    text-align: center;
+}
+
+#binary-search-input {
+    display: flex;
+    justify-content: center; /* Căn giữa các phần tử theo chiều ngang */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+    padding: 10px;
+    height: 58px;
+    box-sizing: border-box;
+}
+
+.binary-search-list {
+    display: none;
+    font-size: 0;
+    width: 700px;
+    height: 50px;
+    padding: 10px 0 10px 0;
+    margin: 0 10px 0 10px;
+    box-sizing: border-box;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.binary-search-list li {
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.binary-search-cell {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid rgb(41, 170, 170);
+    margin: 1px;
+
+}
+
+#binary-search-progress {
+    display: block;
+    height: 250px;
+    overflow-y: auto;
+}
+
+#binary-search-result {
+    display: none;
+    width: 310px;
+    height: 40px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid rgb(41, 170, 170);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 10px;
+    line-height: 18px;
+    font-weight: bold;
+}

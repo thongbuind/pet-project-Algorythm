@@ -19,6 +19,12 @@ export function NguoiDuLichFunction() {
         document.getElementById("tsp-result-route").textContent = `${route.join(" => ")} => 0`;
     }
 
+    // Làm mới
+    document.getElementById("tsp-clear").onclick = function(e) {
+        e.preventDefault();
+        tspClear();
+    }
+
     // Function
     function renderNguoiDuLich() {
         let html = `
@@ -133,5 +139,13 @@ export function NguoiDuLichFunction() {
                 cost -= costMatrix[x[i-1]][x[i]];
             }
         }
+    }
+
+    function tspClear() {
+        document.querySelectorAll(".tsp-cell").forEach(function(e) {
+            e.value = "";
+        })
+        document.getElementById("tsp-result-num").textContent = "";
+        document.getElementById("tsp-result-route").textContent = "";
     }
 }

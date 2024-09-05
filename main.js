@@ -27,6 +27,7 @@ setOnclick("quy-hoach-dong", 5);
 
 // Function
 function setOnclick(name, id) {
+                                                                                
     document.getElementById(name).onclick = function(e) {
         e.preventDefault();
         document.getElementsByClassName("content")[0].style.display = "flex";

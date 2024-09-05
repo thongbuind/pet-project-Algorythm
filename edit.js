@@ -7,12 +7,12 @@ document.getElementById("nav-edit").onclick = function(e) {
         document.getElementsByClassName("content")[1].style.display = "none";
         document.getElementsByClassName("content")[1].style.position = "";
     }
-    SetOnclickEdit("edit-de-quy", 1);
-    SetOnclickEdit("edit-quay-lui", 2);
+    SetOnclickEdit("edit-de-quy", 0);
+    SetOnclickEdit("edit-quay-lui", 1);
+    SetOnclickEdit("edit-nhanh-can", 2);
     SetOnclickEdit("edit-tham-lam", 3);
-    SetOnclickEdit("edit-nhanh-can", 4);
-    SetOnclickEdit("edit-chia-de-tri", 5);
-    SetOnclickEdit("edit-quy-hoach-dong", 6);
+    SetOnclickEdit("edit-chia-de-tri", 4);
+    SetOnclickEdit("edit-quy-hoach-dong", 5);
 }
 
 // Functions
@@ -23,6 +23,7 @@ function SetOnclickEdit(name, id) {
         var element;
         getPost(function(algorythms) {
             element = algorythms[id];
+            console.log(element);
             renderPost(element);
         });
 
@@ -40,7 +41,7 @@ function getPost(cb) {
 
 function renderPost(element) {
     var html = `
-        <form action="https://66c8901d8a477f50dc2e92e8.mockapi.io/algorythm" id="edit-form" method="POST">
+        <form action="" id="edit-form" method="POST">
             <div class="edit-header">Lý thuyết</div>
             <textarea id="theory-title-1" name="theory-title-1" wrap="soft">${element["theory-title-1"]}</textarea>
             <textarea id="theory-p-1" name="theory-p-1" wrap="soft">${element["theory-p-1"]}</textarea>
@@ -76,7 +77,7 @@ function renderPost(element) {
             <textarea id="example-3-depcription-5" name="example-3-depcription-5" class="ex-depcription" wrap="soft">${element["example-3-depcription-5"]}</textarea>
 
             <div id="edit-back">Back</div>
-            <button type="submit" id="edit-push">Push</button>
+            <button type="" id="edit-push">Push</buttonnnnn>
         </form>
     `;
     document.querySelector(".edit-screen").innerHTML = html;

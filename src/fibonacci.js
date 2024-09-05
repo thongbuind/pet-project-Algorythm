@@ -13,6 +13,7 @@ export function FibonacciFunction() {
                     <li> * Bài toán N quân hậu (quay lui)</li>
                     <li> * Bài toán giải Sudoku (quay lui)</li>
                     <li> * Bài toán người du lịch (nhánh và cận)</li>
+                    <li> * Tìm kiếm nhị phân (Binary Search) (chia để trị)</li>
                 </ul>
             </h2>
         `;
