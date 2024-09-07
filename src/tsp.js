@@ -123,7 +123,7 @@ export function NguoiDuLichFunction() {
         });
     }
 
-    var cost = 0, ans = Number.MAX_SAFE_INTEGER, cmin = Number.MAX_SAFE_INTEGER;
+    var cost = 0, ans = Number.MAX_SAFE_INTEGER, cmin = Number.MAX_SAFE_INTEGER; // dùng cmin để xác định cận
     var visited = Array(20).fill(0);
     var x = Array(20).fill(0);
     function TSP(i) {
@@ -169,7 +169,7 @@ export function NguoiDuLichFunction() {
         ];
         let tmp = costMatrix.flat();
         for (let i=0; i<tmp.length; i++) {
-            document.getElementsByClassName("tsp-cell")[i].placeholder = tmp[i];
+            document.getElementsByClassName("tsp-cell")[i].value = tmp[i];
         }
     }
 }
