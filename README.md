@@ -1,5 +1,5 @@
 # Project ALGORYTHM
-Dự án này mang đến những kiến thức nền tảng về các thuật toán cơ bản trong môn Cấu trúc dữ liệu và Giải thuật (DS-A), bao gồm khái niệm,, ý tưởng, mô hình chung, ứng dụng, ví dụ minh họa, cùng với hình ảnh trực quan cho từng thuật toán.  
+Project này mang đến những kiến thức nền tảng về các thuật toán cơ bản trong môn Cấu trúc dữ liệu và Giải thuật (DS-A), bao gồm khái niệm,, ý tưởng, mô hình chung, ứng dụng, ví dụ minh họa, cùng với hình ảnh trực quan cho từng thuật toán.  
 Link web: https://thongbuind.github.io/petProject-Algorythm/
 
 ## Công Nghệ Sử Dụng

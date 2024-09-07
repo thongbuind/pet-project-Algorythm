@@ -25,6 +25,12 @@ export function NguoiDuLichFunction() {
         tspClear();
     }
 
+    // Số liệu mẫu
+    document.getElementById("tsp-sample-data").onclick = function(e) {
+        e.preventDefault();
+        tspSampleData();
+    }
+
     // Function
     function renderNguoiDuLich() {
         let html = `
@@ -40,6 +46,7 @@ export function NguoiDuLichFunction() {
             </div>
             <div id="tsp-solve">Giải</div>
             <div id="tsp-clear">Làm mới</div>
+            <div id="tsp-sample-data">Số liệu mẫu</div>
             <div id="tsp-result">
                 <div>Thứ tự thành phố đi qua: <span id="tsp-result-route"></span></div>
                 <div><strong>Tổng chi phí: <span id="tsp-result-num"></span></strong></div>
@@ -147,5 +154,22 @@ export function NguoiDuLichFunction() {
         })
         document.getElementById("tsp-result-num").textContent = "";
         document.getElementById("tsp-result-route").textContent = "";
+    }
+
+    function tspSampleData() {
+        totalCity = 5;
+        document.getElementById("tsp-roll-num").textContent = totalCity;
+        changeMatrixSize(totalCity);
+        costMatrix = [
+            [0, 10, 15, 20, 25],
+            [10, 0, 35, 25, 30],
+            [15, 35, 0, 30 ,20],
+            [20, 25, 30, 0, 15],
+            [25, 30, 20, 15, 0]
+        ];
+        let tmp = costMatrix.flat();
+        for (let i=0; i<tmp.length; i++) {
+            document.getElementsByClassName("tsp-cell")[i].placeholder = tmp[i];
+        }
     }
 }
