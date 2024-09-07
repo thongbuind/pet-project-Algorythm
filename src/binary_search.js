@@ -29,11 +29,9 @@ export function BinarySearchFunction() {
                 <button id="binary-search-solve">Tìm kiếm</button>
             </div>
             <!-- in ra mảng dưới dạng đã sắp xếp -->
-            <div class="binary-search-list">
-            </div>
+            <div class="binary-search-list"></div>
             <!-- bước 1 -> bước n -->
-            <div id="binary-search-progress">
-            </div>
+            <div id="binary-search-progress"></div>
             <div id="binary-search-result"></div>
         `;
         document.querySelector('.example-illustration').innerHTML = html;
@@ -130,19 +128,18 @@ export function BinarySearchFunction() {
     }
 
     function printProgress() {
-        let html = '<ul>';
-        for (let i=0; i<cnt; i++) {
-            let n = progress[i].length;
+        let html = '';
+        for (let i = 0; i < cnt; i++) {
             let tmp = `<ul class="binary-search-list">`;
-            for (let j=0; j<n; j++) {
-                if (progress[i][j] != 0) {
+            for (let j = 0; j < progress[i].length; j++) {
+                if (progress[i][j] !== 0) {
                     tmp += `<li class="binary-search-cell">${progress[i][j]}</li>`;
                 }
             }
             tmp += '</ul>';
             html += tmp;
         }
-        html += '</ul>';
+        
         document.getElementById("binary-search-progress").innerHTML = html;
         document.querySelectorAll(".binary-search-list").forEach(function(e) {
             e.style.display = "block";

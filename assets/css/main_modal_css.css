@@ -615,6 +615,7 @@ input.tsp-cell::placeholder {
     height: 30px;
     box-sizing: border-box;
     background-color: white;
+    border-radius: 5px;
     border: 1px solid rgb(41, 170, 170);
     margin: 1px;
 
