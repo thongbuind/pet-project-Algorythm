@@ -82,68 +82,62 @@ function getAlorythm(cb) {
 
 function renderTheory(element) {
     displayScreen("theory");
-    var text = `${element["name"]}`;
+    let text = `${element["name"]}`;
     document.getElementById("title-name").textContent = text;
 
-    var html = `
-        <h3>${element["theory-title-1"]}</h3>
-        <p>${element["theory-p-1"]}</p>
-        <p>${element["theory-p-2"]}</p>
-        <h3>${element["theory-title-2"]}</h3>
-        <p>${element["theory-p-3"]}</p>
-        <h3>${element["theory-title-3"]}</h3>
-        <p>${element["theory-p-4"]}</p>
-        <h3>${element["theory-title-4"]}</h3>
-        <p>${element["theory-p-5"]}</p>
-    `;
+    var html = '';
+    for(let i=0; i<element["theory"].length; i++) {
+        let tmpHtml =`
+            <h3>${element["theory"][i]["title"]}</h3>
+        `;
+        for (let j=0; j<element["theory"][i]["content"].length; j++) {
+            tmpHtml += `
+                <p>${element["theory"][i]["content"][j]}</p>
+            `;
+        }
+        html += tmpHtml;
+    }
     document.querySelector('.theory').innerHTML = html;
 }
+
 function renderSampleCode(element) {
     displayScreen("sample-code");
-    var html = `
-        <h3>${element["example-1-name"]}</h3>
-        <ul>
-            <li><p>${element["example-1-depcription-1"]}</p></li>
-            <li><p>${element["example-1-depcription-2"]}</p></li>
-            <li><p>${element["example-1-depcription-3"]}</p></li>
-            <li><p>${element["example-1-depcription-4"]}</p></li>
-            <li><p>${element["example-1-depcription-5"]}</p></li>
-            <li><p><strong>Xem chi tiết source code</strong> <a href="${element["example-1-link"]}" target="_blank">tại đây</a> ฅ՞•ﻌ•՞ฅ</p></li>
-        </ul>
-        <h3>${element["example-2-name"]}</h3>
-        <ul>
-            <li><p>${element["example-2-depcription-1"]}</p></li>
-            <li><p>${element["example-2-depcription-2"]}</p></li>
-            <li><p>${element["example-2-depcription-3"]}</p></li>
-            <li><p>${element["example-2-depcription-4"]}</p></li>
-            <li><p>${element["example-2-depcription-5"]}</p></li>
-            <li><p><strong>Xem chi tiết source code</strong> <a href="${element["example-2-link"]}" target="_blank">tại đây</a> ฅ՞•ﻌ•՞ฅ</p></li>
-        </ul>
-        <h3>${element["example-3-name"]}</h3>
-        <ul>
-            <li><p>${element["example-3-depcription-1"]}</p></li>
-            <li><p>${element["example-3-depcription-2"]}</p></li>
-            <li><p>${element["example-3-depcription-3"]}</p></li>
-            <li><p>${element["example-3-depcription-4"]}</p></li>
-            <li><p>${element["example-3-depcription-5"]}</p></li>
-            <li><p><strong>Xem chi tiết source code</strong> <a href="${element["example-3-link"]}" target="_blank">tại đây</a> ฅ՞•ﻌ•՞ฅ</p></li>
-        </ul>
-    `;
+    var html = '';
+    for (let i=0; i<element["examples"].length; i++) {
+        let tmpHtml = `
+            <h3>${element["examples"][i]["name"]}</h3>
+            <ul>
+        `;
+        for (let j=0; j<element["examples"][i]["description"].length; j++) {
+            tmpHtml += `
+                <li><p>${element["examples"][i]["description"][j]}</p></li>
+            `;
+        }
+        tmpHtml += `
+            <li><p><strong>Xem chi tiết source code</strong> <a href="${element["examples"][i]["link"]}" target="_blank">tại đây</a> ฅ՞•ﻌ•՞ฅ</p></li>
+            </ul>
+        `;
+        html += tmpHtml;
+    }
     document.querySelector('.sample-code').innerHTML = html;
 }
+
 function renderExample(element) {
     displayScreen("example");
     var html = `
         <div class="example-illustration"></div>  
         <ul class="example-list">
-            <li id="${path}/1">${element["example-1-name"]}</li>
-            <li id="${path}/2">${element["example-2-name"]}</li>
-            <li id="${path}/3">${element["example-3-name"]}</li>
-        </ul>
     `;
+    for (let i=0; i<element["examples"].length; i++) {
+        html += `
+            <li id="${path}/${i+1}">${element["examples"][i]["name"]}</li>
+        `;
+    }
+    html += `</ul>`;
     document.querySelector('.example').innerHTML = html;
     ganSuKienOnclickChoExample();
 }
+
 function renderNote(element) {
     displayScreen("note");
     var html = `
