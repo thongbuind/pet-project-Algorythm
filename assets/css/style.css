@@ -9,9 +9,9 @@ ul {
 }
 
 .modal {
-    /* display: none; */
-    display: flex;
-    position: fixed;
+    display: none;
+    /* display: flex;
+    position: fixed; */
     top: 0;
     bottom: 0;
     left: 0;
@@ -297,7 +297,7 @@ input::placeholder {
     background-color: rgba(8, 143, 143, 0.3);
 }
 .cell {
-    display: none;
+    display: inline-block;
     flex: 1 1 20%;           /* Mỗi thẻ div sẽ chiếm 30% chiều rộng container */
     max-width: 30%;          /* Giới hạn tối đa chiều rộng mỗi thẻ div là 30% */
     min-width: 100px;        /* Giới hạn tối thiểu chiều rộng mỗi thẻ div là 100px */

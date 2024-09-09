@@ -23,7 +23,6 @@ function SetOnclickEdit(name, id) {
         var element;
         getPost(function(algorythms) {
             element = algorythms[id];
-            console.log(element);
             renderPost(element);
         });
 
