@@ -68,7 +68,7 @@ function renderPost(element) {
     }
     html += `
             <div id="edit-back">Back</div>
-            <button type="" id="edit-push">Push</buttonnnnn>
+            <button type="" id="edit-push">Push</button>
         </form>
     `;
     document.querySelector(".edit-screen").innerHTML = html;
